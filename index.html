@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>City Guide App</title>
+  <style>
+    body { font-family: system-ui, Arial; margin: 0; background:#f6f7fb; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 20px; }
+    .card { background:#fff; border-radius:16px; padding:20px; box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+    h1 { margin: 0 0 6px; font-size: 26px; }
+    p { line-height: 1.4; margin: 10px 0; }
+    .btn { display:inline-block; padding:14px 16px; border-radius:12px; text-decoration:none; font-weight:700; }
+    .primary { background:#111827; color:#fff; }
+    .muted { color:#6b7280; font-size: 14px; }
+    .steps { background:#f3f4f6; border-radius:12px; padding:12px; }
+    .lang { display:flex; gap:10px; flex-wrap:wrap; margin: 12px 0 0; }
+    .pill { padding:8px 10px; border-radius:999px; background:#eef2ff; font-weight:600; cursor:pointer; border:0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1 id="title">City Guide App</h1>
+      <p id="subtitle" class="muted">Official tourist guide • Free • Works offline</p>
+
+      <!-- ΒΑΛΕ ΕΔΩ ΤΟ LINK ΤΟΥ APK -->
+      <p><a class="btn primary" id="downloadBtn" href="YOUR_APK_LINK_HERE">Download for Android (APK)</a></p>
+
+      <div class="steps" id="steps">
+        <p><b>Install steps</b></p>
+        <ol>
+          <li>Tap <b>Download</b></li>
+          <li>If asked, allow <b>Install unknown apps</b></li>
+          <li>Open the City Guide</li>
+        </ol>
+      </div>
+
+      <div class="lang">
+        <button class="pill" onclick="setLang('en')">English</button>
+        <button class="pill" onclick="setLang('gr')">Ελληνικά</button>
+      </div>
+
+      <p class="muted" style="margin-top:14px">
+        Tip: If your phone warns “not from Google Play”, this is normal for direct downloads.
+      </p>
+    </div>
+  </div>
+
+<script>
+function setLang(lang){
+  if(lang==='gr'){
+    document.getElementById('title').innerText = 'Επίσημος Οδηγός Πόλης';
+    document.getElementById('subtitle').innerText = 'Τουριστικός οδηγός • Δωρεάν • Λειτουργεί offline';
+    document.getElementById('downloadBtn').innerText = 'Λήψη για Android (APK)';
+    document.getElementById('steps').innerHTML = `
+      <p><b>Βήματα εγκατάστασης</b></p>
+      <ol>
+        <li>Πάτησε <b>Λήψη</b></li>
+        <li>Αν ζητηθεί, επέτρεψε <b>Εγκατάσταση από άγνωστες πηγές</b></li>
+        <li>Άνοιξε την εφαρμογή</li>
+      </ol>`;
+  } else {
+    location.reload();
+  }
+}
+</script>
+</body>
+</html>
